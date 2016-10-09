@@ -20,7 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#include "module/platform/android/module.h"
+#include "module/platform/android/public/module.h"
 
 using namespace std;
 

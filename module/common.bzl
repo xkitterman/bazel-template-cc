@@ -17,9 +17,9 @@ copts_common_debug   = ['-g']
 # Common compilation options for all release build types
 copts_common_release = ['-O2']
 
-# Public header files located within the same directory as the BUILD file
+# Public header files located within the include directory relative to the BUILD file
 def headers():
-    return native.glob(['*{}'.format(file_type) for file_type in hdrs_file_types])
+    return native.glob(['public/**/*{}'.format(file_type) for file_type in hdrs_file_types])
 
 # Private headers and source files located within the source directory relative to the BUILD file
 def sources():
