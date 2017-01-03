@@ -1,6 +1,6 @@
 # Load common symbols
 load(
-    '//module:common.bzl',
+    '//:common.bzl',
     'public',
     'private',
     'headers',
