@@ -1,7 +1,3 @@
-# Common visibilities
-public  = ['//visibility:public']
-private = ['//visibility:private']
-
 # Supported header file types
 hdrs_file_types = ['.h', '.hpp']
 
@@ -9,10 +5,10 @@ hdrs_file_types = ['.h', '.hpp']
 srcs_file_types = ['.cc', '.cpp'] + hdrs_file_types
 
 # Common compilation options for all build types
-copts_common  = ['-std=c++11', '-Wall']
+copts_common  = ['-std=c++14', '-Wall']
 
 # Common compilation options for all debug build types
-copts_common_debug   = ['-g']
+copts_common_debug = ['-g']
 
 # Common compilation options for all release build types
 copts_common_release = ['-O2']

@@ -1,8 +1,10 @@
+package(
+    default_visibility = ['//visibility:public']
+)
+
 # Load common symbols
 load(
     '//:common.bzl',
-    'public',
-    'private',
     'headers',
     'sources',
     'copts_common',
@@ -15,17 +17,15 @@ srcs = sources()
 
 # Libraries
 cc_library(
-    name       = 'module',
-    hdrs       = hdrs,
-    srcs       = srcs,
-    copts      = copts_common + copts_common_release,
-    visibility = public,
+    name  = 'module',
+    hdrs  = hdrs,
+    srcs  = srcs,
+    copts = copts_common + copts_common_release,
 )
 
 cc_library(
-    name       = 'module-debug',
-    hdrs       = hdrs,
-    srcs       = srcs,
-    copts      = copts_common + copts_common_debug,
-    visibility = public,
+    name  = 'module-debug',
+    hdrs  = hdrs,
+    srcs  = srcs,
+    copts = copts_common + copts_common_debug,
 )
