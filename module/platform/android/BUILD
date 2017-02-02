@@ -5,29 +5,20 @@ package(
 # Load common symbols
 load(
     '//:common.bzl',
-    'headers',
-    'sources',
-    'copts_common',
-    'copts_common_debug',
-    'copts_common_release',
+    'cc_library_module',
 )
 
-hdrs = headers()
-srcs = sources()
+copts_common = ['-std=c++14', '-Wall']
 
 # Libraries
-cc_library(
+cc_library_module(
     name  = 'module',
-    hdrs  = hdrs,
-    srcs  = srcs,
-    copts = copts_common + copts_common_release,
+    copts = copts_common + ['-O2'],
     deps  = ['//module:module'],
 )
 
-cc_library(
+cc_library_module(
     name  = 'module-debug',
-    hdrs  = hdrs,
-    srcs  = srcs,
-    copts = copts_common + copts_common_debug,
+    copts = copts_common + ['-g'],
     deps  = ['//module:module'],
 )

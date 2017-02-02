@@ -22,7 +22,7 @@
 
 #pragma once
 
-#include "module/public/xmodule.h"
+#include "module/xmodule.h"
 
 class Module : public XModule
 {

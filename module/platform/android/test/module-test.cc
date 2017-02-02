@@ -23,7 +23,7 @@
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
 
-#include "module/platform/android/public/module.h"
+#include "module/platform/android/module.h"
 
 TEST(ModuleTest, Test1)
 {

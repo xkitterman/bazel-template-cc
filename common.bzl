@@ -1,22 +1,24 @@
-# Supported header file types
-hdrs_file_types = ['.h', '.hpp']
+def cc_library_module(
+    name,
+    copts    = [],
+    deps     = [],
+    hdrs_dir = 'public',
+    srcs_dir = 'source',
+):
+    # Supported header file types
+    hdr_file_types = ['.h', '.hpp']
 
-# Supported source file types
-srcs_file_types = ['.cc', '.cpp'] + hdrs_file_types
+    # Supported source file types
+    src_file_types = ['.c', '.cc', '.cpp'] + hdr_file_types
 
-# Common compilation options for all build types
-copts_common  = ['-std=c++14', '-Wall']
+    native.cc_library(
+        name  = name,
+        hdrs  = native.glob(['{}/**/*{}'.format(hdrs_dir, file_type) for file_type in hdr_file_types]),
+        srcs  = native.glob(['{}/**/*{}'.format(srcs_dir, file_type) for file_type in src_file_types]),
+        copts = copts,
+        deps  = deps,
 
-# Common compilation options for all debug build types
-copts_common_debug = ['-g']
-
-# Common compilation options for all release build types
-copts_common_release = ['-O2']
-
-# Public header files located within the include directory relative to the BUILD file
-def headers():
-    return native.glob(['public/**/*{}'.format(file_type) for file_type in hdrs_file_types])
-
-# Private headers and source files located within the source directory relative to the BUILD file
-def sources():
-    return native.glob(['source/**/*{}'.format(file_type) for file_type in srcs_file_types])
+        # Allows public headers to be include via "PACKAGE_NAME/<filename>.h"
+        include_prefix = PACKAGE_NAME,
+        strip_include_prefix = hdrs_dir,
+    )
