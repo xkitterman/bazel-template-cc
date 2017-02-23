@@ -1,3 +1,4 @@
+//
 // MIT License
 // 
 // Copyright (c) 2016 Jordan Kitterman
@@ -19,13 +20,20 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
+//
 
 #pragma once
 
-class Common
+#include "module/xmodule.h"
+
+class Module : public XModule
 {
     public:
-        Common();
+        Module();
 
-        void performCommonOperation();
+        virtual std::string getName() const override;
+        virtual void setName(const std::string& name) override;
+
+    private:
+        std::string mName;
 };

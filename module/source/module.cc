@@ -1,3 +1,4 @@
+//
 // MIT License
 // 
 // Copyright (c) 2016 Jordan Kitterman
@@ -19,16 +20,22 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
+//
 
-#include "module/common.h"
+#include "module/private/module.h"
 
-Common::Common()
+Module::Module()
+    : mName("")
 {
 
 }
 
-void Common::performCommonOperation()
+std::string Module::getName() const
 {
-    int i = 0;
-    i++;
+    return mName;
+}
+
+void Module::setName(const std::string& name)
+{
+    mName = name;
 }

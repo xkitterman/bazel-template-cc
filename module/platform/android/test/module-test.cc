@@ -1,3 +1,4 @@
+//
 // MIT License
 // 
 // Copyright (c) 2016 Jordan Kitterman
@@ -19,22 +20,18 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
+//
 
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
 
+#include "module/test/xmodule-test.h"
+
 #include "module/platform/android/module.h"
 
-TEST(ModuleTest, Test1)
-{
-    Module m;
-
-    EXPECT_TRUE(true);
-}
-
-TEST(ModuleTest, Test2)
-{
-    Module m;
-
-    EXPECT_EQ("equal", "equal");
-}
+INSTANTIATE_TYPED_TEST_CASE_P
+(
+    AndroidModule,
+    XModuleTest,
+    Module
+);

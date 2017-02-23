@@ -19,3 +19,10 @@ cc_library_module(
     name  = 'module-debug',
     copts = copts_common + ['-g'],
 )
+
+# Unittest Suite
+test_suite(
+    name  = 'unittests',
+    tags  = ['unittest'],
+    tests = ['//module/platform/android/test:unittests'],
+)

@@ -1,3 +1,4 @@
+//
 // MIT License
 // 
 // Copyright (c) 2016 Jordan Kitterman
@@ -19,6 +20,7 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
+//
 
 #pragma once
 
@@ -27,7 +29,7 @@
 class XModule
 {
     public:
-        virtual ~XModule() {}
+        virtual ~XModule() = default;
 
         virtual std::string getName() const = 0;
         virtual void setName(const std::string& name) = 0;
