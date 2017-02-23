@@ -10,22 +10,15 @@ load(
 
 copts_common = ['-std=c++14', '-Wall']
 
+# Libraries
 cc_library_module(
     name  = 'module',
     copts = copts_common + ['-O2'],
+    deps  = ['//module:module'],
 )
 
 cc_library_module(
     name  = 'module-debug',
     copts = copts_common + ['-g'],
-)
-
-# Unittest Suite
-test_suite(
-    name  = 'unittests',
-    tags  = ['unittest'],
-    tests = [
-        '//module/platform/android/test:unittests',
-        '//module/platform/ios/test:unittests',
-    ],
+    deps  = ['//module:module'],
 )
